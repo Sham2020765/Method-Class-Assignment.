@@ -1,0 +1,24 @@
+using System;
+
+namespace AssignmentApp
+{
+    public class MathOperations
+    {
+        public void ProcessNumbers(int firstNumber, int secondNumber)
+        {
+            int result = firstNumber * 5;
+            Console.WriteLine($"The second number is: {secondNumber}");
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            MathOperations mathObj = new MathOperations();
+            mathObj.ProcessNumbers(10, 25);
+            mathObj.ProcessNumbers(firstNumber: 50, secondNumber: 100);
+            Console.ReadLine();
+        }
+    }
+}
