@@ -1,0 +1,49 @@
+using System;
+
+namespace PolymorphismAssignment
+{
+    // 1. Create an interface called IQuittable and have it define a void method called Quit().
+    public interface IQuittable
+    {
+        // Defines the Quit method that any implementing class must provide functionality for.
+        void Quit();
+    }
+
+    // 2. Have your Employee class inherit that interface and implement the Quit() method.
+    public class Employee : IQuittable
+    {
+        // Basic properties for the Employee class to represent a realistic object.
+        public int Id { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+
+        // Implementing the Quit method from the IQuittable interface.
+        public void Quit()
+        {
+            // This displays a message in the console indicating that the employee is quitting.
+            Console.WriteLine($"{FirstName} {LastName} has officially quit the job.");
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] sender)
+        {
+            // 3. Use polymorphism to create an object of type IQuittable.
+            // Even though we instantiate an Employee object, we reference it using the IQuittable interface type.
+            IQuittable employee = new Employee()
+            {
+                Id = 1,
+                FirstName = "John",
+                LastName = "Doe"
+            };
+
+            // Call the Quit() method on the IQuittable object.
+            // Because of polymorphism, the program knows to execute the implementation inside the Employee class.
+            employee.Quit();
+
+            // Prevents the console window from closing immediately so you can see the output.
+            Console.ReadLine();
+        }
+    }
+}
